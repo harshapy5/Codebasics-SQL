@@ -93,8 +93,8 @@ WHERE m.industry="Bollywood";
 -- Find profit of all bollywood movies and sort them by profit amount (Make sure the profit be in millions for better comparisons)
 SELECT m.movie_id, title revenue, currency, unit, 
 CASE 
-	WHEN unit="Thousands" THEN ROUND((revenue-budget)/1000,2)
-	WHEN unit="Billions" THEN ROUND((revenue-budget)*1000,2)
+	WHEN unit="Thousands" THEN ROUND((revenue-budget)/100,2)
+	WHEN unit="Billions" THEN ROUND((revenue-budget)*100,2)
 ELSE revenue-budget
 END as profit_mln
 FROM movies m
